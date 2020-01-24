@@ -49,4 +49,10 @@ public class CategoryController {
         ImageIO.write(img, "jpg", file);
         return "redirect:/admin_category_list";
     }
+
+    @RequestMapping("admin_category_delete")
+    public String delete(Category category) {
+        categoryService.delete(category);
+        return "redirect:/admin_category_list";
+    }
 }
