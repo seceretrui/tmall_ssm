@@ -33,7 +33,7 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public void delete(Category category) {
-        categoryMapper.delete(category);
+    public void delete(int id) {
+        categoryMapper.delete(id);
     }
 }
