@@ -2,6 +2,7 @@ package com.ruihe.tmall.service.impl;
 
 import com.ruihe.tmall.mapper.CategoryMapper;
 import com.ruihe.tmall.pojo.Category;
+import com.ruihe.tmall.pojo.CategoryExample;
 import com.ruihe.tmall.service.CategoryService;
 import com.ruihe.tmall.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,27 +14,34 @@ import java.util.List;
  * Created by seceretrui 2020/01/20/16:15
  */
 @Service
-public class CategoryServiceImpl implements CategoryService{
+public class CategoryServiceImpl implements CategoryService {
     @Autowired
     CategoryMapper categoryMapper;
 
     @Override
-    public List<Category> list(Page page) {
-        return categoryMapper.list(page);
-    }
-
-    @Override
-    public int total() {
-        return categoryMapper.total();
+    public List<Category> list() {
+        CategoryExample example =new CategoryExample();
+        example.setOrderByClause("id desc");
+        return categoryMapper.selectByExample(example);
     }
 
     @Override
     public void add(Category category) {
-        categoryMapper.add(category);
+        categoryMapper.insert(category);
     }
 
     @Override
     public void delete(int id) {
-        categoryMapper.delete(id);
+        categoryMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public Category get(int id) {
+        return categoryMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public void update(Category category) {
+        categoryMapper.updateByPrimaryKeySelective(category);
     }
 }

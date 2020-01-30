@@ -1,16 +1,21 @@
 package com.ruihe.tmall.mapper;
 
 import com.ruihe.tmall.pojo.Category;
-import com.ruihe.tmall.util.Page;
-
+import com.ruihe.tmall.pojo.CategoryExample;
 import java.util.List;
 
-/**
- * Created by seceretrui 2020/01/20/16:11
- */
 public interface CategoryMapper {
-    List<Category> list(Page page);
-    int total();
-    void add(Category category);
-    void delete(int id);
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(Category record);
+
+    int insertSelective(Category record);
+
+    List<Category> selectByExample(CategoryExample example);
+
+    Category selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(Category record);
+
+    int updateByPrimaryKey(Category record);
 }
