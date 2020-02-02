@@ -7,6 +7,7 @@ public class Page {
     private int start;
     private int count;
     private int total;
+    private String param;
 
     private final static int defaultCount = 5;
 

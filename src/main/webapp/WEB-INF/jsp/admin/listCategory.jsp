@@ -31,7 +31,7 @@
                         <td>${c.id}</td>
                         <td><img height="40px" src="img/category/${c.id}.jpg"></td>
                         <td>${c.name}</td>
-                        <td><a href="admin_property_list?cid=${c.id}.jpg"><span class="glyphicon glyphicon-th-list"></span></a></td>
+                        <td><a href="admin_property_list?cid=${c.id}"><span class="glyphicon glyphicon-th-list"></span></a></td>
                         <td><a href="admin_product_list?cid=${c.id}"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
                         <td><a href="admin_category_edit?id=${c.id}"><span class="glyphicon glyphicon-edit"></span></a></td>
                         <td><a deleteLink="true" href="admin_category_delete?id=${c.id}"a><span class="glyphicon glyphicon-trash"></span></a></td>
@@ -57,37 +57,8 @@
         });
     });
 </script>
-<nav aria-label="Page navigation">
-    <ul class="pagination">
-        <li <c:if test="${!page.hasPrevious}">class="disabled" </c:if>>
-            <a href="?start=0" aria-label="Previous">
-                <span aria-hidden="true"><<</span>
-            </a>
-        </li>
-        <li <c:if test="${!page.hasPrevious}">class="disabled" </c:if>>
-            <a href="?start=${page.start - page.count}" aria-label="Previous">
-                <span aria-hidden="true"><</span>
-            </a>
-        </li>
 
-        <c:forEach begin="0" end="${page.totalPage - 1}" varStatus="status">
-            <li>
-                <a href="?start=${page.count * status.index}" class="current">${status.count}</a>
-            </li>
-        </c:forEach>
-
-        <li <c:if test="${!page.hasNext}">class="disabled" </c:if>>
-            <a href="?start=${page.start + page.count}" aria-label="Next">
-                <span aria-hidden="true">></span>
-            </a>
-        </li>
-        <li <c:if test="${!page.hasNext}">class="disabled" </c:if>>
-            <a href="?start=${page.last}" aria-label="Next">
-                <span aria-hidden="true">>></span>
-            </a>
-        </li>
-    </ul>
-</nav>
+<%@include file="../include/admin/adminPage.jsp"%>
 
 <div class="panel panel-warning addDiv">
     <div class="panel-heading">新增分类</div>
