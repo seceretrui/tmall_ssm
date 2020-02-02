@@ -7,10 +7,12 @@ import com.ruihe.tmall.service.CategoryService;
 import com.ruihe.tmall.util.ImageUtil;
 import com.ruihe.tmall.util.Page;
 import com.ruihe.tmall.util.UploadedImageFile;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
@@ -25,10 +27,14 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("")
 public class CategoryController {
     @Autowired
     CategoryService categoryService;
+
+    @RequestMapping(value = "/")
+    public String index(){
+        return "redirect:admin_category_list";
+    }
 
     @RequestMapping("admin_category_list")
     public String list(Model model, Page page) {

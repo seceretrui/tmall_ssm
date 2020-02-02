@@ -18,7 +18,6 @@ import java.util.List;
  * Created by seceretrui 2020/02/01/14:40
  */
 @Controller
-@RequestMapping("")
 public class PropertyController {
     @Autowired
     CategoryService categoryService;
