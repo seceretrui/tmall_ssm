@@ -34,6 +34,7 @@
                 <th>ID</th>
                 <th>产品名称</th>
                 <th>副标题</th>
+                <th>产品图片管理</th>
                 <th>原价格</th>
                 <th>折扣价</th>
                 <th>库存货量</th>
@@ -48,6 +49,7 @@
                     <td>${p.id}</td>
                     <td>${p.name}</td>
                     <td>${p.subTitle}</td>
+                    <td><a href="admin_productImage_list?pid=${p.id}"><span class="glyphicon glyphicon-picture"></span></a></td>
                     <td>${p.originalPrice}</td>
                     <td>${p.promotePrice}</td>
                     <td>${p.stock}</td>
